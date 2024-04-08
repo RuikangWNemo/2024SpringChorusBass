@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024 Spring Chorus Bass Helper</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        .top-bar {
+            background-color: #007bff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #fff;
+            margin: 0;
+        }
+
+        .audio-checkbox {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            color: #fff;
+        }
+
+        .audio-checkbox input {
+            margin-right: 5px;
+        }
+
+        .pdf-link {
+            display: block;
+            margin: 10px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .pdf-link:hover {
+            background-color: #0056b3;
+        }
+
+        .pdf-link span {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>2024 Spring Chorus Bass Helper</h1>
+        <div class="audio-checkbox">
+            <input type="checkbox" id="audioCheckbox">
+            <label for="audioCheckbox">Play Audio</label>
+        </div>
+    </div>
+    <div id="pdfLinks"></div>
+
+    <script>
+        const pdfFiles = [
+            { pdfPath: 'pdfs/1. Trashin\' The Camp.pdf', audioPath: 'audios/1. Trashin\' The Camp Bass.m4a' },
+            { pdfPath: 'pdfs/2. Der Mond ist Aufgegangen.pdf', audioPath: 'audios/2. Der Mond ist Aufgegangen Bass.m4a' },
+            { pdfPath: 'pdfs/3. Dis-moi, Beau Printemps.pdf', audioPath: 'audios/3. Dis-moi, Beau Printemps Bass.m4a' },
+            { pdfPath: 'pdfs/4. Dağlar Gibi Dlagalari.pdf', audioPath: 'audios/4. Dağlar Gibi Dlagalari Bass.m4a' },
+            { pdfPath: 'pdfs/5-CHN. DKU AM A Cappella.pdf', audioPath: 'audios/5. DKU AM A Cappella Bass.m4a' },
+            { pdfPath: 'pdfs/5-ENG. DKU AM A Cappella.pdf', audioPath: 'audios/5. DKU AM A Cappella Bass.m4a' },
+            { pdfPath: 'pdfs/6. Love Poetry.pdf', audioPath: 'audios/6. Love Poetry Bass.m4a' },
+            { pdfPath: 'pdfs/7. 想要的一定实现.pdf', audioPath: 'audios/7. 想要的一定实现 Bass.m4a' },
+            { pdfPath: 'pdfs/8. 如梦令.pdf', audioPath: 'audios/8. 如梦令 Bass.m4a' }
+        ];
+
+        const pdfLinksContainer = document.getElementById('pdfLinks');
+        const audioCheckbox = document.getElementById('audioCheckbox');
+
+        pdfFiles.forEach((item, index) => {
+            const link = document.createElement('a');
+            link.href = '#';
+            link.className = 'pdf-link';
+            link.textContent = `${index + 1}. ${getFileName(item.pdfPath)}`;
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                openPdf(item.pdfPath);
+                if (audioCheckbox.checked) {
+                    openAudio(item.audioPath);
+                }
+            });
+            pdfLinksContainer.appendChild(link);
+        });
+
+        function getFileName(path) {
+            return path.split('/').pop(); // 获取文件名
+        }
+
+        function openPdf(pdfPath) {
+            window.location.href = pdfPath;
+        }
+
+        function openAudio(audioPath) {
+            window.open(audioPath, '_blank');
+        }
+    </script>
+</body>
+</html>
