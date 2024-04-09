@@ -82,10 +82,9 @@
             { pdfPath: 'pdfs/5-CHN. DKU AM A Cappella.pdf', audioPath: 'audios/5. DKU AM A Cappella Bass.m4a' },
             { pdfPath: 'pdfs/5-ENG. DKU AM A Cappella.pdf', audioPath: 'audios/5. DKU AM A Cappella Bass.m4a' },
             { pdfPath: 'pdfs/6. Love Poetry.pdf', audioPath: 'audios/6. Love Poetry Bass.m4a' },
-            { pdfPath: 'pdfs/7. 想要的一定实现.pdf', audioPath: 'audios/7. 想要的一定实现 Bass.m4a' },
-            { pdfPath: 'pdfs/8. 如梦令.pdf', audioPath: 'audios/8. 如梦令 Bass.m4a' },
             { pdfPath: 'pdfs/Special1. 夏天的夢是什麼顏色的呢.pdf', audioPath: 'audios/Special1. 夏天的夢是什麼顏色的呢 Bass.m4a' },
-            { pdfPath: 'pdfs/Special2. A Million Dreams.pdf', audioPath: 'audios/Special2. A Million Dreams Bass.m4a' }
+            { pdfPath: 'pdfs/Special2. A Million Dreams.pdf', audioPath: 'audios/Special2. A Million Dreams Bass.m4a' },
+            { pdfPath: 'pdfs/8. 如梦令.pdf', audioPath: 'audios/8. 如梦令 Bass.m4a' }
         ];
 
         const pdfLinksContainer = document.getElementById('pdfLinks');
@@ -104,7 +103,7 @@
                 }
             });
             pdfLinksContainer.appendChild(link);
-            if (index === 7) { // Inserting divider after the 8th item
+            if (index === 8) { // Inserting divider after the 9th item
                 const divider = document.createElement('hr');
                 divider.className = 'divider';
                 pdfLinksContainer.appendChild(divider);
